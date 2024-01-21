@@ -1,7 +1,6 @@
 const fs = require('fs');
 const readline = require('readline');
 
-// Create a writable stream to a text file
 const fileStream = fs.createWriteStream('./02-write-file/input.txt', { flags: 'a' });
 
 console.log("Welcome! Please input some text:");
