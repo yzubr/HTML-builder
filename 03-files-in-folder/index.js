@@ -1,7 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-// Function to retrieve data for each object within the secret-folder
+const folderPath = './03-files-in-folder/secret-folder';
+
 function retrieveData(folderPath) {
   fs.readdir(folderPath, (err, files) => {
     if (err) {
@@ -18,15 +19,13 @@ function retrieveData(folderPath) {
         }
 
         if (stats.isFile()) {
+          const filename = path.parse(file).name;
           const fileSize = stats.size;
           const fileExtension = path.extname(file).slice(1);
-          console.log(`${file}-${fileExtension}-${fileSize} bytes`);
+          console.log(`${filename}-${fileExtension}-${fileSize} bytes`);
         }
       });
     });
   });
 }
-
-// Read the contents of the secret-folder
-const folderPath = './03-files-in-folder/secret-folder';
 retrieveData(folderPath);
