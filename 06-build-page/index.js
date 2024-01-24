@@ -13,24 +13,24 @@ function makeDir(pathtonewfolder, foldername) {
 }
 makeDir(__dirname, 'project-dist');
 
-// function copyFiles(pathtofolderforread,folderforread) {
-//     fs.readdir(
-//         path.join(pathtofolderforread, folderforread),
-//         (err, files) => {
-//             if (err) {
-//                 return console.error(err);
-//             };
-//             for (let file of files) {
-//                 fs.copyFile(path.join(pathtofolderforread, folderforread, file), path.join(__dirname, 'project-dist', file), (err) => {
-//                     if (err) {
-//                         return console.error(err);
-//                     }
-//                     console.log('Files copies successfully!');
-//                 });
-//             }
-//         })
-// }
-// copyFiles()
+function copyFiles(pathold, pathnew) {
+    fs.readdir(
+        path.join(__dirname, 'assets', el.name),
+        (err, files) => {
+            if (err) {
+                return console.error(err);
+            };
+            for (let file of files) {
+                fs.copyFile(pathold, pathnew, (err) => {
+                    if (err) {
+                        return console.error(err);
+                    }
+                    console.log('Files copies successfully!');
+                });
+            }
+        })
+}
+
 
 function Assets() {
     fs.readdir(path.join(__dirname, 'assets'),

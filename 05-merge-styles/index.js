@@ -10,7 +10,7 @@ fs.readdir(
             return console.error(err);
         };
         files.forEach((file) => {
-            if (file.isFile && path.extname(file) == ".css") {
+            if (path.extname(file) == ".css") {
                 const stream = fs.createReadStream(path.join(__dirname, 'styles', file), 'utf-8');
                 stream.on('data', (chunk) => bundle.write(chunk));
             }
